@@ -33,7 +33,7 @@ jQuery 준비(ready) 되는 함수 부분에서
     <link href="./css/reset.css" rel="stylesheet"/>
 </head>
 <body>
-<h1>1Week - 09/08</h1>
+<h1>1Week - 09/02</h1>
 <script src="./vendor/jquery/jquery.min.js" type="text/javascript"></script>
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script> -->
 <script src="./js/script.js" type="text/javascript"></script>
