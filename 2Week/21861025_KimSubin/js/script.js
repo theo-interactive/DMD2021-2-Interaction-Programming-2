@@ -106,8 +106,8 @@ const myit = () => {
     }
     var mo = '를 틀어두고 라디오처럼 사용합니다.'
 
-    var introduce = id + ne + mo;
-
+    var bo = my.time[1] + ' 전에는 항상 잔잔한 목소리의 유튜브 라디오 컨텐츠를 듣습니다.'
+    var introduce = id + ne + mo + bo;
     console.log(introduce);
 };
 myit();
