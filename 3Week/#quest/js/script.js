@@ -58,8 +58,12 @@ var logStyle = "padding:2px;background:#fff;border-radius:4px;color:#222;";
         */
         //Answer 8.
         console.log("%c Answer 8.", logStyle);
+        // Hint.
+        // $input.val(); // value
+        // $input[0] js | attribute - value
 
 
+        
         //Quest 9.
         /*
         ‘Menu 7’ 텍스트를 포함하고 있는 a 요소를 선택할 수 있는 여러 가지 방법을 찾아, console.log 메서드를 이용하여 출력합니다.

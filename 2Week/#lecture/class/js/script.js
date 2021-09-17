@@ -21,6 +21,7 @@ const buttonEls = document.getElementsByClassName('button');
 // console.log(buttonEls);
 for(i = 0; i < buttonEls.length; ++i) {
     buttonEls[i].innerHTML = `<span>Button ${i + 1}</span>`;
+    buttonEls[i].innerHTML = '<span>Button ' + (i + 1) + '</span>';
     // buttonEls[i].innerHTML = '<span>Button ${i}</span>';
 }
 
@@ -54,7 +55,7 @@ console.log(sum) // 1 ~ 10 모두 더한 값.
 // [...0,1,2,3,4,5,6,7,8,9,10]
 // [ {}, {}, {}, {}]
 sum = [...Array(11).keys()].reduce((prev, current) => {
-    return prev + current;    
+    return prev + current;
 }, 0);
 console.log(sum);
 
