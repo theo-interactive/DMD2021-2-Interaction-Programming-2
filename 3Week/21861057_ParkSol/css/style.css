@@ -1,0 +1,9 @@
+a{color:#333}
+.active{background-color:#f00}
+.current{background-color:#0f0}
+.zero{background-color:#0ff}
+.inner{background-color:#f0f}
+.role{background-color:#00f}
+.emphasis{background-color:#ff0;color:#fff}
+.bold{font-weight:600}
+.hidden{display:none}
