@@ -16,14 +16,10 @@
                     */
                     //Answer 2.
                     var images = ['./img/banner/01.jpeg', './img/banner/02.jpeg', './img/banner/03.jpeg'];
-
-                                $.each(images, function(index, value) {
-
-                                const $bannerItem = $('<div class="banner-item"></div>');
-                                const $bannerImage1 = $('<img>', {'src' : `${value}`});
-                                $bannerImage1.appendTo($bannerItem).eq(0);
-                                $bannerItem.appendTo('div.banner-container').eq(0);
-                                });
+                    const $bannerItem = $('<div class="banner-item"></div>');
+                    for(var i = 0; i<=images.length; i++){
+                        $bannerItem.prependTo('.banner-container');
+                    }
             
                     //Quest 3.
                     /*
@@ -34,9 +30,9 @@
             
                     const $pMove = $('p.move-top');
 
-                    $pMovetop.prependTo($('body').eq(0));
-                    $pMovetop.addClass('move');
-                    $pMovetop.html('위로 이동했습니다.')
+                    $pMove.prependTo($('body').eq(0));
+                    $pMove.addClass('move');
+                    $pMove.html('위로 이동했습니다.')
 
 
                     //Quest 4.
@@ -67,15 +63,15 @@
                     */
                     //Answer 6.
             
-                    $('p.modify').fix('수정되었습니다.');
-            
+                    $('p.modify').replaceWith('<p class="modify">수정되었습니다.</p>');
+
                     //Quest 7.
                     /*
                     p.modify 노드의 내용을 비우고 문서에서 삭제합니다.
                     */
                     //Answer 7.
             
-                    $('p.modify').fix('').remove();
+                    $('p.modify').empty('').remove();
 
 
                     //Quest 8.
