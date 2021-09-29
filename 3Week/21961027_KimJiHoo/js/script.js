@@ -31,6 +31,7 @@ var logStyle = "padding:2px;background:#fff;border-radius:4px;color:#222;";
         //Answer 3.
         const $li_2 = $('li');
         $li_2.eq(0).addClass('zero'); // eq는 index(0에서부터 시작하는 순번)를 통해 요소를 찾아낼 수 있음, 
+        // $li_2.first(); << 이렇게 풀 수도 있음!
         console.log($li_2); // li의 index의 0번째에 zero가 추가됨을 확인(하늘색이 됨), 문제 해결!
 
         //Quest 4.
@@ -41,6 +42,8 @@ var logStyle = "padding:2px;background:#fff;border-radius:4px;color:#222;";
         const $a_span = $('a').has('span').addClass('inner');
         // a 요소에 > span클래스를 가진 요소에 > inner 클래스를 추가. 
         console.log($a_span); // inner 클래스가 붙은 요소 = 핑크색이 됨, 문제 해결!
+
+        // $('a:has(span)') << 이렇게 찾을 수도 있다.
         
         //Quest 5.
         /*
@@ -89,6 +92,7 @@ var logStyle = "padding:2px;background:#fff;border-radius:4px;color:#222;";
         // 1. val() 을 통해 가져오기
 
         const $radio_1 = $('#radio-1'); // radio-1 아이디가 붙은 요소를 찾아옴
+        // $('input#radio-1') 로 찾아왔어야 한다...
         console.log($radio_1);
 
         const $radio_1Value = $radio_1.val();// 위에서 찾은 요소의 value값을 찾아옴
@@ -100,6 +104,13 @@ var logStyle = "padding:2px;background:#fff;border-radius:4px;color:#222;";
             // console.log("한바퀴!"); // 반복문이 한 바퀴 돎을 확인.
             console.log($radio_1[i].value); // 위와 같은 값이 출력됨을 확인, 문제 해결!
         }
+
+        // 3. attribute를 통해.
+
+        // let radioValue = $radio_1.val();
+        // radioValue =  $radio_1.attr('value'); 
+        // radioValue = $radio_1[0].getAttribute('value');
+        // radioValue = $radio_1[0].value;
 
 
         //Quest 9.
@@ -116,6 +127,15 @@ var logStyle = "padding:2px;background:#fff;border-radius:4px;color:#222;";
         console.log($a_txt); // Menu 7이 적힌 요소가 선택됨, 문제 해결!
 
         // 2. 그 다음은 모르겠습니다.....
+
+        // let $aMenu7 = $('a:contains(Menu 7)'); // contains를 통해 찾기. ""는 넣지 않아도 됨.
+
+        // $aMenu7 = $('.gnb')
+        // .children('li')
+        // .eq(6)
+        // .children('a');  // 경로를 이용해 찾기. gnb의 li의 6번째 자식요소의 a
+       
+        
         
 
         //Quest 10.
@@ -129,8 +149,15 @@ var logStyle = "padding:2px;background:#fff;border-radius:4px;color:#222;";
         console.log($radio_not2);
 
         const $radio_not2_Parent =$radio_not2.parent().children('label').addClass('emphasis'); // 위에서 찾은 요소의 부모요소(바로 상위)를 찾고, 그 자식 요소 label에 클래스 추가.
-        // console.log($radio_not2_Parent); // emphasis 클래스가 붙은 요소 = 바탕이 노란색, 문제 해결!  
+        // console.log($radio_not2_Parent); // emphasis 클래스가 붙은 요소 = 바탕이 노란색, 문제 해결! 
+        
 
+
+        const $inputNotRadio2 = $('input').not('#radio-2');
+        const $parent = $inputNotRadio2.parent(); // 부모 노드를 찾고, 
+        const $label = $parent.find('label'); // 그것의 자식 노드를 찾고 그 속에서 label을 "찾음".
+        // console.log($inputNotRadio2);
+        $label.addClass('emphasis');
 
         //Quest 11.
         /*
@@ -148,6 +175,10 @@ var logStyle = "padding:2px;background:#fff;border-radius:4px;color:#222;";
         
         const $sub_bold = $sub_last.children().addClass('bold'); // 모든 자식 노드 요소에 bold 클래스 추가
         console.log($sub_bold); // 서브 메뉴 글자들이 bold해 지는 것을 확인 가능, 문제 해결!
+
+
+        // children과 find의 차이:
+        // 이 둘의 차이점이라면 children()은 부모 요소의 바로 아래 단계인 자식요소만 선택할 수 있으나, find()는 부모 태그의 모든 하위 요소의 자식을 선택하여 가져올수 있다는 점이 차이점이다.(인터넷 펌)
 
 
     });
