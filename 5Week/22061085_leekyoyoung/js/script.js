@@ -128,26 +128,36 @@
         */
         //Answer 12.
         const $span = $dotNav.find('span');
-
+    
         const dotSelect = function(){
-            if (_id == 0){
-                $span.removeClass('selected');
-                $span.eq(0).addClass('selected');
-            }else if (_id == 1000){
-                $span.removeClass('selected');
-                $span.eq(1).addClass('selected');
-            }else if (_id == 2000){
-                $span.removeClass('selected');
-                $span.eq(2).addClass('selected');
-            }else if (_id == 3000){
-                $span.removeClass('selected');
-                $span.eq(3).addClass('selected');
-            }else if (_id == 4000){
-                $span.removeClass('selected');
-                $span.eq(4).addClass('selected');
+            let i = _id;
+            if(i == _id){
+                $span.not(i/$bannerWidth).removeClass('selected');
+                $span.eq(i/$bannerWidth).addClass('selected');
             }
-
         }
+
+
+
+        // const dotSelect = function(){
+        //     if (_id == 0){
+        //         $span.removeClass('selected');
+        //         $span.eq(0).addClass('selected');
+        //     }else if (_id == 1000){
+        //         $span.removeClass('selected');
+        //         $span.eq(1).addClass('selected');
+        //     }else if (_id == 2000){
+        //         $span.removeClass('selected');
+        //         $span.eq(2).addClass('selected');
+        //     }else if (_id == 3000){
+        //         $span.removeClass('selected');
+        //         $span.eq(3).addClass('selected');
+        //     }else if (_id == 4000){
+        //         $span.removeClass('selected');
+        //         $span.eq(4).addClass('selected');
+        //     }
+
+        // }
         /*
         Quest 13.
         paddleCheck 함수를 생성하고 해당 조건문을 적용합니다.
@@ -158,11 +168,10 @@
         */
         //Answer 13.
         const paddleCheck = function(){
-            console.log(_id)
-            if(_id==0){
+            if(_id<$bannerWidth){
                 $paddleNav.find('.arrow.prev').addClass('disabled');
             }
-            else if(_id==4000){
+            else if(_id==$bannerItem.length*$bannerWidth-$bannerWidth){
                 $paddleNav.find('.arrow.next').addClass('disabled');
             }else{
                 $paddleNav.find('.disabled').removeClass('disabled');
