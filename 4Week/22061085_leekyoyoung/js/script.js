@@ -5,8 +5,8 @@
         my-name 아이디를 가진 span 요소를 생성하고 ‘제 이름은 본인이름입니다.’ 의 내용을 추가하여 hello 아이디를 가진 div 노드의 첫 번째 자식노드로 추가합니다.
         */
         //Answer 1.
-        $('<span id="my-name">‘제 이름은 이교영 입니다.’</span>').appendTo('div#hello').eq(0);
-
+        // $('<span id="my-name">‘제 이름은 이교영 입니다.’</span>').appendTo('div#hello').eq(0);
+        $('div#hello').prepend($('<span id="my-name">‘제 이름은 이교영 입니다.’</span>'));
         //Quest 2.
         /*
         1. images 배열의 원소 수 만큼 banner-item 클래스를 가지는 div 요소를 생성합니다.
@@ -15,11 +15,22 @@
         */
         //Answer 2.
         var images = ['./img/banner/01.jpg', './img/banner/02.jpg', './img/banner/03.jpg'];
-        const $bannerItem = $('<div class="banner-item"></div>');
-        for(var i = 0; i<=images.length; i++){
-            $bannerItem.prependTo('.banner-container');
-        }
+        // for(var i = 0; i<images.length; i++){
+        //     const $bannerItem = $('<div class="banner-item"></div>');
+        //     const $img = $(`<img src ="${images[i]}" />`);
+        //     console.log()
+        //     // $img.attr('src',images[i]);
+        //     $bannerItem.append($img);
+        //     $('.banner-container').append($bannerItem);
+        // }
 
+        images.forEach((image, idx) =>{
+            console.log(image, idx);
+            // let template='';
+            // template += '<div class="banner-item"></div>';
+            const template =  `<div class="banner-item"><img src ="${image}"/></div>`;
+            $('.banner-container').append(template);
+        }) 
         //Quest 3.
         /*
         1. p.move-top 노드를 body 의 가장 위로 이동시킵니다.
@@ -110,3 +121,4 @@
         });
     });
 })(jQuery);
+

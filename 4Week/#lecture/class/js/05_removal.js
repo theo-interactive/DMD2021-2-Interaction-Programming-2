@@ -12,6 +12,7 @@ console.log("Script Load");
             const $p = $el.next('p');
             if ($p.html() !== '') {
                 $p.empty();
+                $p.html('');
             } else {
                 count++;
                 $p.html(`<span>Hello World! (${count})</span>`);
