@@ -1,0 +1,37 @@
+#gird{
+	max-width: 92%;
+	margin-right: auto;
+	margin-left: auto;
+}
+#grid .grid{
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+#grid .grid .grid-item{
+	padding-right: 40px;
+	padding-bottom: 50px;
+	padding-left: 40px;
+}
+#grid .grid .down{
+	/* border: 1px solid red; */
+    padding-top: 50px;
+}
+#grid .grid-item .figure{
+	width: 240px;
+}
+#grid .grid-item .figure img{
+	display: inline-block;
+	width:100%;
+	vertical-align: top;
+}
+#grid .grid-item .figure + .caption{margin-top: 10px;}
+
+#grid .grid-item .caption{
+	color: #3a3a3a;
+    text-align: center;
+	font-size: 1.167rem;
+	line-height: 2rem;
+}
