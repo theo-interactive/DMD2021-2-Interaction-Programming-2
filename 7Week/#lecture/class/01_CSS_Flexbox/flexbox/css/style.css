@@ -42,3 +42,118 @@ fieldset{border:none}
 
 /* ---- LAYOUT ---- */
 body{font-family:'SF Pro Display',Apple SD Gothic Neo,Malgun Gothic,Dotum,Helvetica,Helvetica Neue,Arial,Verdana,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;word-spacing:-1px;-webkit-text-size-adjust:none}
+
+.grid{
+    display:flex;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    /* flex, row */
+
+    width:800px;
+    height:100vh;
+    margin: 20px;
+    padding: 10px;
+
+    border: 10px solid #000000;
+
+    /* 방향 설정 */
+    flex-direction: row;
+    /* flex-direction: column; */
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column-reverse; */
+
+    /* 줄 넘김 설정 */
+    /* flex-wrap:nowrap; */
+    flex-wrap: wrap;
+    /* flex-wrap: wrap-reverse; */
+    
+    /* 방향 줄 넘김 축약형 */
+    /* flex-flow: column wrap; */
+
+    /* justify-content: flex-start; */
+    /* justify-content: flex-end; */
+    /* justify-content: center; */
+    /* justify-content: space-between; */
+    /* justify-content: space-around; */
+    /* justify-content: space-evenly; */
+
+    /* align-items: flex-start; */
+    /* align-items: flex-end; */
+    /* align-items: center; */
+    /* align-items: stretch; */
+
+    /* align-content: flex-start; */
+    /* align-content: flex-end; */
+    /* align-content: center; */
+    /* align-content: stretch; */
+
+    background-color: #eeeeee;
+
+    /* justify-content: space-between; */
+
+}
+.grid .grid-item{
+    width: 100px;
+    height: 100px;
+    padding: 0 15px;
+    background-color:#000000;
+    margin: 20px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 60px;
+    line-height: 100px;
+    box-sizing: border-box;
+    
+    /* flex-grow: 1; */
+    /* flex-shrink: 1; */
+    /* flex-basis: 200px; */
+    /* flex-basis: calc(50% - 40px); */
+    /* flex-basis: 33.3%; */
+    /* flex-basis: calc(25% - 40px); */
+    /* flex-basis: calc(20% - 40px); */
+
+    /* flex: 1 1 200px; */
+
+    /* align-self: flex-start; */
+    /* align-self: flex-end; */
+}
+
+/* ******************* */
+/* ******************* */
+.grid .grid-item:nth-child(1){
+    /* margin-right:auto */
+}
+.grid .grid-item:nth-child(2){
+    /* margin-left:auto */
+    margin-right:auto
+}
+.grid .grid-item:nth-child(3){
+    /* margin-left:auto */
+}
+/* ******************* */
+/* ******************* */
+
+
+.grid .grid-item:nth-child(3){
+    order:2;
+    background-color: aquamarine;
+    /* flex-grow: 3; */
+    /* flex-basis: calc(100% - 40px); */
+    /* align-self: stretch; */
+}
+
+.grid .grid-item:nth-child(6){
+    order:-1;
+    background-color: blueviolet;
+    /* flex-basis: calc(100% - 40px); */
+}
+
+
+@media only screen and (max-width:768px) {
+    .grid .grid-item:nth-child(3){
+        order:-1
+    }
+    .grid .grid-item:nth-child(6){
+        order:3
+    }    
+}
