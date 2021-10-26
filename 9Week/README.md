@@ -2,10 +2,10 @@
 
 9주차 과제입니다.
 
-## Image slider
+## Image slider + Menu 복습
 
 1. '학번_이름' 폴더를 '9Week' 폴더에 생성합니다.
-2. '학번_이름' 폴더에 Image slider 를 복습하고 구성 제작하여 업로드합니다.
+2. '학번_이름' 폴더에 Image slider 와 Menu 를 복습하고 레이아웃 구성 제작하여 업로드합니다.
 
 ## 제출기한
 
