@@ -1,0 +1,239 @@
+/* 웹 폰트 import */
+
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+
+
+/* ---- RESET ---- */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,button,input,abbr,article,aside,command,details,figcaption,figure,footer,header,hgroup,mark,meter,nav,output,progress,section,summary,time,menu,select,legend{margin:0;padding:0}
+h1,h2,h3,h4,h5,h6{font-size:1em;font-weight:400}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+audio:not([controls]){display:none;height:0} 
+[hidden]{display:none}
+html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+html,button,input,select,textarea{font-family:'Montserrat',Apple SD Gothic Neo,Malgun Gothic,Dotum,Helvetica,Helvetica Neue,Arial,Verdana,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;word-spacing:-1px;-webkit-text-size-adjust:none}
+body{margin:0}
+a:active,a:hover,a:focus{outline:0}
+b,strong{font-weight:bold}
+ul,ol{list-style:none}
+img{border:0;-ms-interpolation-mode:bicubic}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+form{margin:0}
+legend{border:0;padding:0;white-space:normal;*margin-left:-7px}
+button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}
+button,input{line-height:normal}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;*overflow:visible}
+button[disabled],input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;*height:13px;*width:13px}
+input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type=search]::-webkit-search-cancel-button,input[type='search']::-webkit-search-decoration{-webkit-appearance:none}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+a,button{-webkit-tap-highlight-color:transparent}
+button{border:0 none;background-color:transparent;cursor:pointer}
+textarea{overflow:auto;vertical-align:top;resize:none;font-family:'Montserrat',Apple SD Gothic Neo,Malgun Gothic,Dotum,Helvetica,Helvetica Neue,Arial,Verdana,sans-serif}
+table{border-collapse:collapse;border-spacing:0}
+html,button,input,select,textarea,a{color:#222}
+*{-webkit-tap-highlight-color:rgba(0,0,0,0)}
+img{vertical-align:middle}
+a{cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-touch-callout:none}
+a:hover{color:#222}
+a:hover,a:link,a:visited,a:active{text-decoration:none}
+a.select{cursor:default !important;-webkit-transition:none !important;-moz-transition:none !important;-ms-transition:none !important;-o-transition:none !important;transition:none !important}
+input{-webkit-appearance:none;border-radius:0;font-family:'Montserrat',Apple SD Gothic Neo,Malgun Gothic,Dotum,Helvetica,Helvetica Neue,Arial,Verdana,sans-serif}
+input[type=number]{-moz-appearance:textfield}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+fieldset{border:none}
+
+/* ---- LAYOUT ---- */
+
+/* 공통 */
+
+body{
+    font-family: 'Jua', sans-serif;
+    
+}
+
+/* 공용 class, id */
+
+.blind{display:none;visibility:hidden}
+
+#wrap{
+    position:relative;
+    width:100%;
+}
+
+/* 상단 내비게이션 */
+
+#global-nav{
+    position:fixed;
+    z-index:3;
+    top:0%;
+    width:100%;
+    background-color:rgb(255, 234, 50);
+    box-shadow:1px 2px 3px rgba(0,0,0,0.1);
+    box-sizing:border-box;
+}
+
+#global-nav ul{
+    /* background-color: royalblue; */
+    padding-top: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* li 각 객체 중앙정렬 */
+}
+
+/* #global-nav li + li{ -> 두 번째 li 객체부터 마지막 li 객체까지
+    border-top:1px solid #222;
+} */
+
+#global-nav li 
+{
+    display: block;
+    text-align: center;
+    /* padding:10px 20px; */
+    color: rgb(230, 46, 0);
+    -webkit-transition: background-color 180ms ease-in-out,color 180ms ease-in-out;-moz-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;-ms-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;-o-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;transition:background-color 180ms ease-in-out,color 180ms ease-in-out;
+
+    width:100%;
+    height:100%;
+}
+
+#global-nav li span{
+    /* background-color: red; */
+    width: 100%; 
+    height: 100%;
+}
+
+#global-nav li a{
+    color: rgb(230, 46, 0);
+    font-family: 'Jua', sans-serif;
+    font-size:24px;
+    font-weight:600;
+    line-height:36px;
+
+    display:block;
+    padding:10px 20px;
+   
+    line-height:30px;
+    -webkit-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;-moz-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;-ms-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;-o-transition:background-color 180ms ease-in-out,color 180ms ease-in-out; transition:background-color 180ms ease-in-out,color 180ms ease-in-out;
+}
+
+#global-nav li a:hover{
+    color: rgb(230, 46, 0);
+    text-decoration: none;
+
+    -webkit-transition: background-color 180ms ease-in-out,color 180ms ease-in-out;-moz-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;-ms-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;-o-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;transition:background-color 180ms ease-in-out,color 180ms ease-in-out;
+
+}
+#global-nav li a.active{
+    color: black;
+    text-decoration: none;
+
+    -webkit-transition: background-color 180ms ease-in-out,color 180ms ease-in-out;-moz-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;-ms-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;-o-transition:background-color 180ms ease-in-out,color 180ms ease-in-out;transition:background-color 180ms ease-in-out,color 180ms ease-in-out;
+
+}
+
+/* 메인 페이지 */
+
+
+.main{
+    
+    background-image: url("/images/Haribo-Logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-color: royalblue; */
+    width: 800px;
+    height: 700px;
+
+    margin: 100px auto 50px auto;
+    
+}
+
+
+
+/* 컨텐츠 */
+
+.content{ 
+    position:relative;
+    /* margin-left:31%;
+    margin-right:4%; */
+}
+
+.content .section{
+    height:calc(100vh - 160px);
+    margin-top:80px;
+}
+
+/* 3번 컨텐츠 패럴렉스 스크롤 */
+
+.content .section:nth-child(3){
+    background:linear-gradient(to top, red, black);
+    background-attachment: fixed;
+}
+
+.content .section:last-child{
+    margin-bottom:80px;
+}
+
+.content .section .area{
+    /* background-color: blue; */
+
+    width:100%;
+    height:100%;
+    padding:50px;
+
+    color:#fff;
+    font-size:40px;
+    font-weight:600;
+    line-height:50px;
+    box-shadow:2px 4px 6px rgba(34,34,34,0.3);
+    box-sizing:border-box;
+
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+.content .section .area h2{
+    position: absolute;
+    z-index: 2;
+
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-shadow: 0 0 10px rgba(34,34,34,0.7);
+}
+
+.content .section .area span{
+    position: absolute;
+    z-index: 2;
+
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-shadow: 0 0 10px rgba(34,34,34,0.7);
+}
+
+
+.content .section .area img{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+
+    width: 100%;
+    
+    /* overflow: hidden; */
+
+    z-index: 0;
+}
+
+
+
