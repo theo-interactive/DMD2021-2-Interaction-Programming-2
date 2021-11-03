@@ -3,7 +3,7 @@ console.log("Script Load");
 const IMAGE_WIDTH = 1069;
 
 (function($) {
-    $(document).ready(function() {
+    $(document).ready(function() { 
         console.log('jQuery Ready');
 
         let isAni = false;
