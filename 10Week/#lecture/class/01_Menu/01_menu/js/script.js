@@ -24,9 +24,7 @@ console.log("Script Load");
 
         function handleScrollWindow() {
             const scrollY = $win.scrollTop();
-            // console.log('scroll', scrollY);
             $.each($section, (idx, el) => {
-                // console.log(idx, el);
                 const $el = $(el);
                 const start = $el.offset().top;
                 const end = start + $el.innerHeight();
@@ -39,7 +37,6 @@ console.log("Script Load");
                     
                 }
             })
-            // $section.forEach()
         }
 
         function reset() {
