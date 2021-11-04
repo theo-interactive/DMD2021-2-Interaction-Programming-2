@@ -4,25 +4,29 @@ console.log("Script Load");
         console.log('jQuery Ready');
 
         const $win = $(window);
+
         const $gn = $('#global-nav');
-        const $gnEl = $gn.find('a');
+        const $gnEl = $gn.children('span');
+
         const $content = $('.content');
         const $section = $content.children('.section');
 
-        function init() {
+        function init(){
             setting();
             addEvent();
             reset();
         }
 
-        function setting() {
+        function setting(){
+
         }
 
-        function addEvent() {
+        function addEvent(){
             $win.on('scroll', handleScrollWindow).trigger('scroll');
         }
 
-        function handleScrollWindow() {
+        // 해당 idx가 되었을 때 섹션버튼이 선택되어야하는데 안되고 있음...
+        function handleScrollWindow(){
             const scrollY = $win.scrollTop();
             // console.log('scroll', scrollY);
             $.each($section, (idx, el) => {
@@ -30,19 +34,21 @@ console.log("Script Load");
                 const $el = $(el);
                 const start = $el.offset().top;
                 const end = start + $el.innerHeight();
-                const add = $win.height() * 0.3;
-                if (scrollY >= start - add && scrollY < end - add) {
-                    if (!$gnEl.eq(idx).hasClass('active')) {
+                const add = $win.height() * 0.5;
+                if( scrollY >= start - add && scrollY < end - add ){
+                    console.log(idx);
+
+                    if(!$gnEl.eq(idx).hasClass('active')){
                         $gnEl.removeClass('active');
                         $gnEl.eq(idx).addClass('active');
                     }
-                    
                 }
-            })
+            });
             // $section.forEach()
         }
 
-        function reset() {
+        function reset(){
+
         }
 
         init();

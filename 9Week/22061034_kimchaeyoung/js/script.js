@@ -1,9 +1,10 @@
 console.log("Script Load");
 
+// 절대 변하지 않는 값
 const IMAGE_WIDTH = 1069;
 
-(function($) {
-    $(document).ready(function() { 
+(function ($) {
+    $(document).ready(function () {
         console.log('jQuery Ready');
 
         let isAni = false;
@@ -36,27 +37,26 @@ const IMAGE_WIDTH = 1069;
         }
 
         function addEvent() {
-            $btnPaddle.on('click' , handleClickPaddle)
+            $btnPaddle.on('click', handleClickPaddle)
             $dot.on('click', handleClickDot)
         }
 
-
         // arrow function. (event handler)
+        // 이벤트를 연결할 때는 화살표 함수보다 기본 함수로 처리해주는게 좋다.
         // const handleClickPaddle = (e) => {
-        //     // console.log(this);
-        //     // console.log(e.currentTarget);
+        //     console.log(this); // #document
+        //     console.log(e.currentTarget); // button
+        //     // jQuery로 한 번 감쌈
         //     const $el = $(e.currentTarget);
         //     console.log($el);
         // }
 
-        // function handleClickPaddle(e) {
-        //     // console.log(_this);
-        //     // console.log(this);
-        //     const $el = $(this);
-        //     // let $el = $(this);
-        //     // console.log($el);
-        //     // $el = $(e.currentTarget);
-        //     // console.log($el);
+        // function handleClickPaddle(e) { 
+        // console.log(this); // 클릭한 버튼들 출력
+        //     let $el = $(this);
+        //     console.log($el); // button
+        //     $el = $(e.currentTarget);
+        //     console.log($el); // button
         // }
 
         // function. (event handler)
@@ -81,6 +81,8 @@ const IMAGE_WIDTH = 1069;
             if (exId !== cuId) {
                 slideAnimation();
             }
+
+            // console.log(cuId);
         }
 
         function slideAnimation() {
@@ -89,25 +91,22 @@ const IMAGE_WIDTH = 1069;
             }
             paddleActive();
             dotSelect();
-            const left = `${(IMAGE_WIDTH * cuId) * -1}px`;
-            const duration = 300 + 100 * Math.abs(cuId - exId);
-            const easing = 'easeInSine'
-            // ease in out
-            // sine / quad / quart / elastic
-            // easeInSine / easeOutSine / easeInOutSine
-            // console.log(exId, cuId, cuId - exId, Math.abs(cuId - exId));
-            // $container.css({ left: `${(IMAGE_WIDTH * cuId) * -1}px` });
-            // exId = cuId;
-
-            // $container.stop(true).animate({ left: left }, 200);
-            // animate({transition 스타일}, {option})
-            // animate({transition 스타일}, number - duration 속도);
-            // $container.stop(true).animate({ left }, 400); // 400ms
-            // $container.stop(true).animate({ left }, { duration: 400, complete: function() {
-            $container.stop(true).animate({ left }, { duration, easing, complete: function() {
-                isAni = false;
-                exId = cuId;
-            }});
+            const left = `${IMAGE_WIDTH * cuId * -1}px`;
+            const duration = 350 + 100 * Math.abs(cuId - exId);
+            const easing = 
+            // 이전 아이디에 현재 아이디 반영
+            // complete = 진행되는동안 다음 함수 내용 실행.
+            // $container.stop(true).animate({left : left}, { duration: 400, complete: function() {
+            $container.stop(true).animate({
+                left
+            }, {
+                duration,
+                complete: function () {
+                    console.log('complete');
+                    isAni = false;
+                    exId = cuId;
+                }
+            });
         }
 
         function handleClickDot(e) {
@@ -118,14 +117,19 @@ const IMAGE_WIDTH = 1069;
             // const $el = $(this);
             const idx = $dot.index(this);
             if (exId !== idx) {
-                cuId = idx
+                console.log('change');
+                cuId = idx;
                 slideAnimation();
             }
+
+            // console.log(idx);
+            // console.log('dot');
         }
 
         function paddleActive() {
             $btnPaddlePrev.removeClass('disabled');
             $btnPaddleNext.removeClass('disabled');
+
             if (cuId === 0) {
                 $btnPaddlePrev.addClass('disabled');
             } else if (cuId === max - 1) {
@@ -136,6 +140,7 @@ const IMAGE_WIDTH = 1069;
         function dotSelect() {
             $dot.removeClass('selected');
             $dot.eq(cuId).addClass('selected');
+            // console.log($dot, $dot.eq(cuId));
         }
 
         function reset() {

@@ -1,15 +1,16 @@
 console.log("Script Load");
 
-const IMAGE_WIDTH = 1069;
+// 이미지 크기 설정
+const IMAGE_WIDTH = 1213;
 
 (function($) {
-    $(document).ready(function() { 
+    $(document).ready(function() {
         console.log('jQuery Ready');
 
         let isAni = false;
         let cuId = 0;
         let exId = 0;
-        let max = void 0;
+        let max = void 0
         const _this = this;
 
         const $banner = $('.banner');
@@ -40,33 +41,14 @@ const IMAGE_WIDTH = 1069;
             $dot.on('click', handleClickDot)
         }
 
-
-        // arrow function. (event handler)
-        // const handleClickPaddle = (e) => {
-        //     // console.log(this);
-        //     // console.log(e.currentTarget);
-        //     const $el = $(e.currentTarget);
-        //     console.log($el);
-        // }
-
-        // function handleClickPaddle(e) {
-        //     // console.log(_this);
-        //     // console.log(this);
-        //     const $el = $(this);
-        //     // let $el = $(this);
-        //     // console.log($el);
-        //     // $el = $(e.currentTarget);
-        //     // console.log($el);
-        // }
-
-        // function. (event handler)
         function handleClickPaddle(e) {
             e.preventDefault();
-            if (isAni) {
+
+            if(isAni){
                 return;
             }
+
             const $el = $(this);
-            // const $el = $(e.currentTarget);
             if ($el.is($btnPaddlePrev)) {
                 cuId -= 1;
                 if (cuId < 0) {
@@ -78,62 +60,59 @@ const IMAGE_WIDTH = 1069;
                     cuId = max - 1;
                 }
             }
-            if (exId !== cuId) {
+            if(exId !== cuId){
                 slideAnimation();
             }
         }
 
-        function slideAnimation() {
-            if (!isAni) {
+        function slideAnimation(){
+            if(!isAni){
                 isAni = true;
             }
+
             paddleActive();
             dotSelect();
             const left = `${(IMAGE_WIDTH * cuId) * -1}px`;
             const duration = 300 + 100 * Math.abs(cuId - exId);
-            const easing = 'easeInSine'
-            // ease in out
-            // sine / quad / quart / elastic
-            // easeInSine / easeOutSine / easeInOutSine
-            // console.log(exId, cuId, cuId - exId, Math.abs(cuId - exId));
-            // $container.css({ left: `${(IMAGE_WIDTH * cuId) * -1}px` });
-            // exId = cuId;
+            const easing = 'easeOutSine';
 
-            // $container.stop(true).animate({ left: left }, 200);
-            // animate({transition 스타일}, {option})
-            // animate({transition 스타일}, number - duration 속도);
-            // $container.stop(true).animate({ left }, 400); // 400ms
-            // $container.stop(true).animate({ left }, { duration: 400, complete: function() {
-            $container.stop(true).animate({ left }, { duration, easing, complete: function() {
-                isAni = false;
+            // $container.stop(true).animate({ left : left },200);
+            // animate({transition 스타일}, {option});
+            // animate({transition 스타일}, nuber - duration 속도);
+            // $container.stop(true).animate({ left },400);
+            // $container.stop(true).animate({ left }, { duration: 400, complete: function(){
+            $container.stop(true).animate({ left }, { duration, easing, complete: function(){
                 exId = cuId;
-            }});
+                isAni = false;
+            } });
         }
 
         function handleClickDot(e) {
             e.preventDefault();
-            if (isAni) {
+
+            if(isAni){
                 return;
             }
-            // const $el = $(this);
             const idx = $dot.index(this);
-            if (exId !== idx) {
+            if(exId !== idx){
+                console.log('change');
                 cuId = idx
                 slideAnimation();
             }
         }
 
-        function paddleActive() {
+        function paddleActive(){
             $btnPaddlePrev.removeClass('disabled');
             $btnPaddleNext.removeClass('disabled');
-            if (cuId === 0) {
+            if(cuId === 0){
                 $btnPaddlePrev.addClass('disabled');
-            } else if (cuId === max - 1) {
+            }
+            else if(cuId === max - 1){
                 $btnPaddleNext.addClass('disabled');
             }
         }
 
-        function dotSelect() {
+        function dotSelect(){
             $dot.removeClass('selected');
             $dot.eq(cuId).addClass('selected');
         }
