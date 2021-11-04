@@ -8,6 +8,7 @@ console.log("Script Load");
         const $gnEl = $gn.find('a');
         const $content = $('.content');
         const $section = $content.children('.section');
+        const $scroll = $('html, body');
 
         function init() {
             setting();
@@ -20,6 +21,7 @@ console.log("Script Load");
 
         function addEvent() {
             $win.on('scroll', handleScrollWindow).trigger('scroll');
+            $gnEl.on('click', handleClickGNEl);
         }
 
         function handleScrollWindow() {
@@ -37,6 +39,19 @@ console.log("Script Load");
                     
                 }
             })
+        }
+
+        function handleClickGNEl(e) {
+            e.preventDefault();
+            const $el = $(this);
+            // const $el = $(e.currentTarget);
+            const id = $el.attr('href');
+            const $cuSection = $(id);
+            const top = $cuSection.offset().top;
+            // window.scrollTo(0, posY);
+            // window.scrollTo({ top, behavior: 'smooth' });
+            // animate()
+            $scroll.stop(true).animate({ scrollTop: top }, { duration: 500, easing: 'easeInOutQuad' });
         }
 
         function reset() {
