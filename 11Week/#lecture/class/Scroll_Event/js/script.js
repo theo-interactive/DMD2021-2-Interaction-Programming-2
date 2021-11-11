@@ -30,7 +30,9 @@ console.log("Script Load");
         function handleResizeWindow() {
             // const width = $win.width();
             // const height = $win.height();
-            const { width, height } = window
+            // window.innerWidth -> width
+            // window.innerHeight -> height
+            const { innerWidth: width, innerHeight: height } = window
             $horizontal.outerHeight(horizontalMax * height);
             $horizontalWrap.outerWidth(horizontalMax * width);
             $horizontalItem.outerWidth(width);
@@ -38,9 +40,27 @@ console.log("Script Load");
 
         function handleScrollWindow() {
             // scrollY = $win.scrollTop();
+            // const { scrollY } = window
+            // console.log(scrollY);
+            horizontalScroll();
+        }
+
+        function horizontalScroll() {
             const { scrollY } = window
-            console.log(scrollY);
-            
+            // 요소와 스크롤을 비교하는 방법 1.
+            // console.log($horizontal.offset(), $horizontal.offset().top, scrollY);
+            const startY = $horizontal.offset().top
+            const endY = startY + $horizontal.outerHeight();
+            // 스크롤이 고정되는 시점 ~ 허용 지점까지 (조건)
+            if (scrollY >= startY && scrollY < endY) {
+                // 스크롤 값에 따라서 가로 영역으로 움직이는 인터랙션.
+            }
+            // 요소와 스크롤을 비교하는 방법 2.
+            // 바닐라JS
+            const boundY = $horizontal[0].getBoundingClientRect().top
+            if (boundY <= 0 && boundY > $horizontal.outerHeight() * -1) {
+                // 스크롤 값에 따라서 가로 영역으로 움직이는 인터랙션.
+            }
         }
 
         function reset() {
